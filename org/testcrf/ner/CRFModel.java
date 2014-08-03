@@ -1,6 +1,6 @@
-package org.dianxinos.ner;
+package org.testcrf.ner;
 
-import com.dianxinos.antispam.utils.CommonUtils;
+
 import org.apache.commons.configuration.ConfigurationUtils;
 import org.chasen.crfpp.Tagger;
 import org.slf4j.Logger;
