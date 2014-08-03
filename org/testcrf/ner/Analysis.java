@@ -1,4 +1,4 @@
-package org.dianxinos.ner;
+package org.testcrf.ner;
 
 import org.ansj.domain.Term;
 import org.ansj.splitWord.analysis.BaseAnalysis;
