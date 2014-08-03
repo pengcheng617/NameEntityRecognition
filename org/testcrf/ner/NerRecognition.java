@@ -1,6 +1,5 @@
-package org.dianxinos.ner;
+package org.testcrf.ner;
 
-import com.dianxinos.antispam.utils.CommonUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.apache.commons.configuration.ConfigurationUtils;
 import org.chasen.crfpp.Tagger;
