@@ -1,4 +1,4 @@
-package org.dianxinos.ner;
+package org.testcrf.ner;
 
 
 import org.slf4j.Logger;
