@@ -36,13 +36,13 @@ Classes
 相关文档和链接
 ---------
 
-	[CRF模型介绍][1]
+	[CRF模型介绍](http://crfpp.googlecode.com/svn/trunk/doc/index.html)
 
-	[CRF模型训练和使用说明][2]
+	[CRF模型训练和使用说明](http://www.cnblogs.com/pangxiaodong/archive/2011/11/21/2256264.html)
 
-	[CRF++ JNI调用][3]
+	[CRF++ JNI调用](http://www.nilday.com/category/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/)
 
-	[CRF++ 编译DLL][3]
+	[CRF++ 编译DLL](http://www.nilday.com/category/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/)
 
 ---------
 
@@ -76,7 +76,3 @@ Classes
     exlink.txt : RuleFilter中会拼接一些长地址，该词典用于防止非地址词语被拼接成地址
     exanly.txt : 该词典用于排除分词带来的错误，譬如，"之日起五日内"这个词语有时候会被直接词性标注为地址名称
 
-	
-[1]: http://crfpp.googlecode.com/svn/trunk/doc/index.html
-[2]: http://www.cnblogs.com/pangxiaodong/archive/2011/11/21/2256264.html
-[3]: http://www.nilday.com/category/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/
