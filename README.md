@@ -1,5 +1,6 @@
 Address extract 
 =====================
+<<<<<<< HEAD
 
 
     Nerrecongnition 用来抽取短信中的地址、时间、日期
@@ -76,3 +77,5 @@ Classes
     exlink.txt : RuleFilter中会拼接一些长地址，该词典用于防止非地址词语被拼接成地址
     exanly.txt : 该词典用于排除分词带来的错误，譬如，"之日起五日内"这个词语有时候会被直接词性标注为地址名称
 
+=======
+>>>>>>> 6e81bb7d01704abcde1b5e8dc3462a000e0abb7f
