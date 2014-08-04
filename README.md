@@ -71,3 +71,8 @@ Classes
 
     exlink.txt : RuleFilter中会拼接一些长地址，该词典用于防止非地址词语被拼接成地址
     exanly.txt : 该词典用于排除分词带来的错误，譬如，"之日起五日内"这个词语有时候会被直接词性标注为地址名称
+
+	
+[1]: http://crfpp.googlecode.com/svn/trunk/doc/index.html
+[2]: http://www.cnblogs.com/pangxiaodong/archive/2011/11/21/2256264.html
+[3]: http://www.nilday.com/category/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/
