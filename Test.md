@@ -28,38 +28,34 @@ Rest服务日志打印规范：
 
 Logback的配置
 ---------
-    Logger作为日志的记录器，把它关联到应用对应的context上后，主要用于存放日志对象，也可以定义日志类型、级别。Appender主要用于指定日志输出的目的地，目的地可以是控制台、文件、远程套接字服务器、 MySQL、 PostreSQL、 Oracle和其他数据库、 JMS和远程UNIX Syslog守护进程等。
+
+Logger作为日志的记录器，把它关联到应用对应的context上后，主要用于存放日志对象，也可以定义日志类型、级别。Appender主要用于指定日志输出的目的地，目的地可以是控制台、文件、远程套接字服务器、 MySQL、 PostreSQL、 Oracle和其他数据库、 JMS和远程UNIX Syslog守护进程等。
     
-    Logger可以被分配级别。级别包括：TRACE、DEBUG、INFO、WARN 和 ERROR，定义于 ch.qos.logback.classic.Level类。如果 logger没有被分配级别，那么它将从有被分配级别的最近的祖先那里继承级别。root logger 默认级别是 DEBUG。
+Logger可以被分配级别。级别包括：TRACE、DEBUG、INFO、WARN 和 ERROR，定义于 ch.qos.logback.classic.Level类。如果 logger没有被分配级别，那么它将从有被分配级别的最近的祖先那里继承级别。root logger 默认级别是 DEBUG。
 
 
 logger配置
 ---------
 
-    <logger>
-    用来设置某一个包或者具体的某一个类的日志打印级别、以及指定<appender>。<logger>仅有一个name属性，一个可选的level和一个可选的addtivity属性。
-    name:用来指定受此logger约束的某一个包或者具体的某一个类。
-    level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，还有一个特俗值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前loger将会继承上级的级别。
-    addtivity:是否向上级logger传递打印信息。默认是true。<logger>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个logger。
+**logger**用来设置某一个包或者具体的某一个类的日志打印级别、以及指定appender。logger仅有一个name属性，一个可选的level和一个可选的addtivity属性。
+    
+**name**:用来指定受此logger约束的某一个包或者具体的某一个类。
+**level**:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，还有一个特俗值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前loger将会继承上级的级别。
+**addtivity**:是否向上级logger传递打印信息。默认是true。logger可以包含零个或多个appender-ref元素，标识这个appender将会添加到这个logger。
 
 ---------
 
 root配置
 ---------
 
-    <root>
-    也是<logger>元素，但是它是根logger。只有一个level属性，应为已经被命名为"root".
-    <level>
-    用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。默认是DEBUG。<root>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个loger。
-
+root也是logger元素，但是它是根logger。只有一个level属性，被命名为"root"
+```<level>```用来设置打印级别：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。默认是DEBUG。root可以包含零个或多个appender-ref元素，标识这个appender将会添加到这个loger。
 
 ---------
 
 appender配置
 ---------
-    <appender>是<configuration>的子节点，是负责写日志的组件。
-    
-    <appender>有两个必要属性name和class。name指定appender名称，class指定appender的全限定名。
+**appender** 是**configuration**的子节点，是负责写日志的组件，有两个必要属性name和class。name指定appender名称，class指定appender的全限定名。
     
 **ConsoleAppender**：把日志添加到控制台
 **FileAppender**：把日志添加到文件
@@ -69,7 +65,7 @@ appender配置
 filter配置
 ---------------
 
-    过滤器，执行一个过滤器会有返回个枚举值，即DENY，NEUTRAL，ACCEPT其中之一。返回DENY，日志将立即被抛弃不再经过其他过滤器；返回NEUTRAL，有序列表里的下个过滤器过接着处理日志；返回ACCEPT，日志会被立即处理，不再经过剩余过滤器。过滤器被添加到<Appender>中，为<Appender>添加一个或多个过滤器后，可以用任意条件对日志进行过滤。<Appender> 有多个过滤器时，按照配置顺序执行。
+过滤器，执行一个过滤器会有返回个枚举值，即DENY，NEUTRAL，ACCEPT其中之一。返回DENY，日志将立即被抛弃不再经过其他过滤器；返回NEUTRAL，有序列表里的下个过滤器过接着处理日志；返回ACCEPT，日志会被立即处理，不再经过剩余过滤器。过滤器被添加到Appender中，为Appender添加一个或多个过滤器后，可以用任意条件对日志进行过滤。Appender有多个过滤器时，按照配置顺序执行。
     
 常用的过滤器：
     **LevelFilter**， 级别过滤器，根据日志级别进行过滤；
@@ -89,18 +85,20 @@ Rest服务日志打印规范
 
 4. 参考示例：Antispam logger格式
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true" scan="true">
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <Target>System.out</Target>
-        <encoder>
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger [%file:%line] [%X{logid}]- %msg%n
-            </Pattern>
-        </encoder>
-    </appender>
 
+```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration debug="true" scan="true">
+     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <Target>System.out</Target>
+            <encoder>
+                <Pattern>
+                    %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger [%file:%line] [%X{logid}]- %msg%n
+                </Pattern>
+            </encoder>
+    </appender>
+    
+    
     <appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/access.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
