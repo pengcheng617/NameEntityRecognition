@@ -39,8 +39,11 @@ logger配置
 
 **logger**用来设置某一个包或者具体的某一个类的日志打印级别、以及指定appender。logger仅有一个name属性，一个可选的level和一个可选的addtivity属性。
     
+    
 **name**：用来指定受此logger约束的某一个包或者具体的某一个类。
+
 **level**：用来设置打印级别，大小写无关：TRACE，DEBUG，INFO，WARN，ERROR，ALL 和 OFF，还有一个特俗值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前logger将会继承上级的级别。
+
 **addtivity**：是否向上级logger传递打印信息。默认是true。logger可以包含零个或多个appender-ref元素，标识这个appender将会添加到这个logger。
 
 ---------
