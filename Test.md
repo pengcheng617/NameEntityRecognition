@@ -39,9 +39,9 @@ logger配置
 
 **logger**用来设置某一个包或者具体的某一个类的日志打印级别、以及指定appender。logger仅有一个name属性，一个可选的level和一个可选的addtivity属性。
     
-**name**:用来指定受此logger约束的某一个包或者具体的某一个类。
-**level**:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，还有一个特俗值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前loger将会继承上级的级别。
-**addtivity**:是否向上级logger传递打印信息。默认是true。logger可以包含零个或多个appender-ref元素，标识这个appender将会添加到这个logger。
+**name**：用来指定受此logger约束的某一个包或者具体的某一个类。
+**level**：用来设置打印级别，大小写无关：TRACE，DEBUG，INFO，WARN，ERROR，ALL 和 OFF，还有一个特俗值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前logger将会继承上级的级别。
+**addtivity**：是否向上级logger传递打印信息。默认是true。logger可以包含零个或多个appender-ref元素，标识这个appender将会添加到这个logger。
 
 ---------
 
@@ -58,8 +58,13 @@ appender配置
 ---------
 **appender** 是**configuration**的子节点，是负责写日志的组件，有两个必要属性name和class。name指定appender名称，class指定appender的全限定名。
     
+    
 **ConsoleAppender**：把日志添加到控制台
+
+
 **FileAppender**：把日志添加到文件
+
+
 **RollingFileAppender**：滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件。（可选滚动策略包括TimeBasedRollingPolicy、FixedWindowRollingPolicy、SizeBasedTriggeringPolicy）
 
 
@@ -69,9 +74,12 @@ filter配置
 过滤器，执行一个过滤器会有返回个枚举值，即DENY，NEUTRAL，ACCEPT其中之一。返回DENY，日志将立即被抛弃不再经过其他过滤器；返回NEUTRAL，有序列表里的下个过滤器过接着处理日志；返回ACCEPT，日志会被立即处理，不再经过剩余过滤器。过滤器被添加到Appender中，为Appender添加一个或多个过滤器后，可以用任意条件对日志进行过滤。Appender有多个过滤器时，按照配置顺序执行。
     
 常用的过滤器：
-    **LevelFilter**， 级别过滤器，根据日志级别进行过滤；
-    **ThresholdFilter**， 临界值过滤器，过滤掉低于指定临界值的日志；
-    **EvaluatorFilter**， 求值过滤器，评估、鉴别日志是否符合指定条件。
+
+**LevelFilter**， 级别过滤器，根据日志级别进行过滤；
+    
+**ThresholdFilter**， 临界值过滤器，过滤掉低于指定临界值的日志；
+
+**EvaluatorFilter**， 求值过滤器，评估、鉴别日志是否符合指定条件。
 
 
 Rest服务日志打印规范
