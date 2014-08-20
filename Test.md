@@ -219,5 +219,6 @@ Rest服务日志打印规范
 
 参考资料
 ----------
-1. http://stackoverflow.com/questions/2031163/when-to-use-log-level-warn-vs-error
-2. http://blog.csdn.net/haidage/article/details/6794509
+1. [日志级别分类的讨论](http://stackoverflow.com/questions/2031163/when-to-use-log-level-warn-vs-error)
+2. [Logback配置详细文档](http://blog.csdn.net/haidage/article/details/6794509)
+
