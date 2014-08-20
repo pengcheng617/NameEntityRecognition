@@ -48,7 +48,8 @@ logger配置
 root配置
 ---------
 
-root也是logger元素，但是它是根logger。只有一个level属性，被命名为"root"
+root也是logger元素，但是它是根logger。只有一个level属性，被命名为"root"。
+
 ```<level>```用来设置打印级别：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。默认是DEBUG。root可以包含零个或多个appender-ref元素，标识这个appender将会添加到这个loger。
 
 ---------
@@ -59,7 +60,7 @@ appender配置
     
 **ConsoleAppender**：把日志添加到控制台
 **FileAppender**：把日志添加到文件
-**RollingFileAppender**：滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件。（滚动策略：TimeBasedRollingPolicy、FixedWindowRollingPolicy、SizeBasedTriggeringPolicy）
+**RollingFileAppender**：滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件。（可选滚动策略包括TimeBasedRollingPolicy、FixedWindowRollingPolicy、SizeBasedTriggeringPolicy）
 
 
 filter配置
@@ -84,7 +85,6 @@ Rest服务日志打印规范
 3. 新上线服务需要配置相应的logger,独立打印logger，避免日志被淹没,同时注意设置additivity="false"，避免日志被重复打印
 
 4. 参考示例：Antispam logger格式
-
 
 ```
     <?xml version="1.0" encoding="UTF-8"?>
